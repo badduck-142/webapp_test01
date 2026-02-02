@@ -85,78 +85,80 @@ export function Header() {
         <header className="sticky top-0 z-50 w-full shadow-md bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4">
                 {/* Desktop Layout */}
-                <div className="hidden md:flex h-24 items-center justify-center gap-8 lg:gap-12">
+                <div className="hidden md:flex h-24 items-center w-full">
                     {/* Left Nav */}
-                    <NavigationMenu>
-                        <NavigationMenuList>
-                            <NavigationMenuItem>
-                                <Link href="/" legacyBehavior passHref>
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "bg-transparent text-muted-foreground hover:text-primary focus:text-primary data-[active]:text-foreground relative font-light",
-                                            // Custom Active State for Home (Demo: always active for '/')
-                                            "data-[active]:after:absolute data-[active]:after:left-0 data-[active]:after:-bottom-1 data-[active]:after:h-[4px] data-[active]:after:w-full data-[active]:after:rounded-full data-[active]:after:bg-[#56dfd5]"
-                                        )}
-                                        data-active={true} // Hardcoded for demo as per previous state
-                                    >
-                                        หน้าแรก
-                                    </NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem>
+                    <div className="flex-1 flex justify-end">
+                        <NavigationMenu>
+                            <NavigationMenuList>
+                                <NavigationMenuItem>
+                                    <Link href="/" legacyBehavior passHref>
+                                        <NavigationMenuLink
+                                            className={cn(
+                                                navigationMenuTriggerStyle(),
+                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary data-[active]:text-foreground relative font-light",
+                                                // Custom Active State for Home (Demo: always active for '/')
+                                                "data-[active]:after:absolute data-[active]:after:left-0 data-[active]:after:-bottom-1 data-[active]:after:h-[4px] data-[active]:after:w-full data-[active]:after:rounded-full data-[active]:after:bg-[#56dfd5]"
+                                            )}
+                                            data-active={true} // Hardcoded for demo as per previous state
+                                        >
+                                            หน้าแรก
+                                        </NavigationMenuLink>
+                                    </Link>
+                                </NavigationMenuItem>
 
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                    เกี่ยวกับเรา
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent className="bg-white">
-                                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                        {aboutUsItems.map((item) => (
-                                            <ListItem
-                                                key={item.title}
-                                                title={item.title}
-                                                href={item.href}
-                                            />
-                                        ))}
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
+                                <NavigationMenuItem>
+                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        เกี่ยวกับเรา
+                                    </NavigationMenuTrigger>
+                                    <NavigationMenuContent className="bg-white">
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                            {aboutUsItems.map((item) => (
+                                                <ListItem
+                                                    key={item.title}
+                                                    title={item.title}
+                                                    href={item.href}
+                                                />
+                                            ))}
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
 
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                    ข่าวสาร
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent className="bg-white">
-                                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                        {newsItems.map((item) => (
-                                            <ListItem
-                                                key={item.title}
-                                                title={item.title}
-                                                href={item.href}
-                                            />
-                                        ))}
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
+                                <NavigationMenuItem>
+                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        ข่าวสาร
+                                    </NavigationMenuTrigger>
+                                    <NavigationMenuContent className="bg-white">
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                            {newsItems.map((item) => (
+                                                <ListItem
+                                                    key={item.title}
+                                                    title={item.title}
+                                                    href={item.href}
+                                                />
+                                            ))}
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
 
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                    เจ้าหน้าที่
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent className="bg-white">
-                                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                                        {staffItems.map((item) => (
-                                            <ListItem
-                                                key={item.title}
-                                                title={item.title}
-                                                href={item.href}
-                                            />
-                                        ))}
-                                    </ul>
-                                </NavigationMenuContent>
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
+                                <NavigationMenuItem>
+                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        เจ้าหน้าที่
+                                    </NavigationMenuTrigger>
+                                    <NavigationMenuContent className="bg-white">
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                            {staffItems.map((item) => (
+                                                <ListItem
+                                                    key={item.title}
+                                                    title={item.title}
+                                                    href={item.href}
+                                                />
+                                            ))}
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+                            </NavigationMenuList>
+                        </NavigationMenu>
+                    </div>
 
                     {/* Logo Center */}
                     <Link href="/" className="flex flex-col items-center justify-center px-4">
@@ -172,71 +174,73 @@ export function Header() {
                     </Link>
 
                     {/* Right Nav */}
-                    <div className="flex gap-4 items-center">
-                        <NavigationMenu>
-                            <NavigationMenuList>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                        ITA
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent className="bg-white">
-                                        <ul className="grid w-[200px] gap-3 p-4">
-                                            {itaItems.map((item) => (
-                                                <ListItem
-                                                    key={item.title}
-                                                    title={item.title}
-                                                    href={item.href}
-                                                />
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
+                    <div className="flex-1 flex justify-start">
+                        <div className="flex gap-4 items-center">
+                            <NavigationMenu>
+                                <NavigationMenuList>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                            ITA
+                                        </NavigationMenuTrigger>
+                                        <NavigationMenuContent className="bg-white">
+                                            <ul className="grid w-[200px] gap-3 p-4">
+                                                {itaItems.map((item) => (
+                                                    <ListItem
+                                                        key={item.title}
+                                                        title={item.title}
+                                                        href={item.href}
+                                                    />
+                                                ))}
+                                            </ul>
+                                        </NavigationMenuContent>
+                                    </NavigationMenuItem>
 
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                        HS4
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent className="bg-white">
-                                        <ul className="grid w-[300px] gap-3 p-4">
-                                            {hs4Items.map((item) => (
-                                                <ListItem
-                                                    key={item.title}
-                                                    title={item.title}
-                                                    href={item.href}
-                                                />
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                            HS4
+                                        </NavigationMenuTrigger>
+                                        <NavigationMenuContent className="bg-white">
+                                            <ul className="grid w-[300px] gap-3 p-4">
+                                                {hs4Items.map((item) => (
+                                                    <ListItem
+                                                        key={item.title}
+                                                        title={item.title}
+                                                        href={item.href}
+                                                    />
+                                                ))}
+                                            </ul>
+                                        </NavigationMenuContent>
+                                    </NavigationMenuItem>
 
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
-                                        หน่วยงาน
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent className="bg-white">
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px]">
-                                            {departmentsItems.map((item) => (
-                                                <ListItem
-                                                    key={item.title}
-                                                    title={item.title}
-                                                    href={item.href}
-                                                />
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                            หน่วยงาน
+                                        </NavigationMenuTrigger>
+                                        <NavigationMenuContent className="bg-white">
+                                            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px]">
+                                                {departmentsItems.map((item) => (
+                                                    <ListItem
+                                                        key={item.title}
+                                                        title={item.title}
+                                                        href={item.href}
+                                                    />
+                                                ))}
+                                            </ul>
+                                        </NavigationMenuContent>
+                                    </NavigationMenuItem>
+                                </NavigationMenuList>
+                            </NavigationMenu>
 
-                        {rightNavItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="text-sm font-light text-muted-foreground transition-colors hover:text-primary px-4 py-2"
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
+                            {rightNavItems.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className="text-sm font-light text-muted-foreground transition-colors hover:text-primary px-4 py-2"
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

@@ -59,7 +59,7 @@ export function ServicesSection() {
     return (
         <section className="container mx-auto px-8 py-40">
             <div className="mb-8 text-center">
-                <h2 className="inline-block border-b-3 border-[#13cdbf] pb-1 text-2xl font-bold text-gray-800">
+                <h2 className="inline-block border-b-3 border-[#13cdbf] pb-1 text-2xl font-bold text-gray-700">
                     งานบริการ
                 </h2>
             </div>

@@ -75,7 +75,7 @@ export function NewsAndActivities() {
     return (
         <section className="container mx-auto px-4 py-16 pb-24 overflow-hidden">
             <div className="mb-12 text-center">
-                <h2 className="inline-block border-b-4 border-[#13cdbf] pb-2 text-2xl md:text-3xl font-bold text-gray-800">
+                <h2 className="inline-block border-b-3 border-[#13cdbf] pb-2 text-2xl md:text-2xl font-bold text-gray-700">
                     ข่าวกิจกรรมภายในโรงพยาบาล
                 </h2>
             </div>

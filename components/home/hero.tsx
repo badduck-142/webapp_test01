@@ -14,10 +14,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import React from "react"
 
 const heroImages = [
-    "/images/njz/32d8574404862347dbcc271982ea07e5.jpg",
-    "/images/njz/568339fca387b017448057f43ed321e1.jpg",
-    "/images/njz/c0f234ee61a416a70192adf5e82d8d46.jpg",
-    "/images/njz/dca05bbffbeb4d9f2a74d1e6cbadc03f.jpg",
+    "/images/njz/img001.png",
+    "/images/njz/hero-king.png"
 ]
 
 export function Hero() {

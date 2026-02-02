@@ -106,9 +106,7 @@ export function ArticlesSection() {
                         </Link>
                     </div>
 
-                    <Button className="w-full bg-[#134e70] hover:bg-[#134e70]/90 text-white shadow-md">
-                        ดูข่าวสารประชาสัมพันธ์ทั้งหมด
-                    </Button>
+
                 </div>
 
                 {/* Content Column - Grid of Articles */}
@@ -159,38 +157,38 @@ export function ArticlesSection() {
 
             {/* Article Modal */}
             <Dialog open={!!selectedArticle} onOpenChange={(open) => !open && setSelectedArticle(null)}>
-                <DialogContent className="max-w-4xl p-0 overflow-hidden rounded-2xl flex flex-col max-h-[90vh]">
+                <DialogContent className="max-w-4xl bg-white max-h-[85vh] overflow-y-auto p-0 sm:rounded-2xl text-slate-900">
                     {selectedArticle && (
-                        <>
+                        <div className="flex flex-col">
                             {/* Modal Header Image */}
-                            <div className="relative h-48 sm:h-64 w-full bg-gray-200 shrink-0">
-                                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-400">
-                                    {/* In real app, use next/image with article.image */}
+                            <div className="relative h-64 w-full bg-gray-100 shrink-0">
+                                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
                                     <FileText className="h-16 w-16 text-gray-300" />
                                 </div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div className="absolute bottom-6 left-6">
                                     <span className="bg-[#13cdbf] text-white px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
                                         {selectedArticle.category}
                                     </span>
                                 </div>
                             </div>
 
-                            {/* Modal Content - Scrollable */}
-                            <div className="p-6 md:p-8 overflow-y-auto">
-                                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 leading-tight">
+                            {/* Modal Content */}
+                            <div className="p-6 md:p-8">
+                                <DialogTitle className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 leading-tight">
                                     {selectedArticle.title}
-                                </h2>
-                                <div className="flex items-center gap-2 text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">
+                                </DialogTitle>
+                                <div className="flex items-center gap-2 text-sm text-slate-500 mb-6 border-b border-gray-100 pb-4">
                                     <Calendar className="h-4 w-4" />
                                     <span>เผยแพร่เมื่อ: {selectedArticle.date}</span>
                                 </div>
 
                                 <div
-                                    className="prose prose-lg text-gray-600 max-w-none"
+                                    className="prose prose-lg max-w-none text-slate-700 headings:font-bold headings:text-slate-900"
                                     dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
                                 />
                             </div>
-                        </>
+                        </div>
                     )}
                 </DialogContent>
             </Dialog>
