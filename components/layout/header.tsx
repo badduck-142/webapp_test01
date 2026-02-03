@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils"
 
 const aboutUsItems = [
     { title: 'ข้อมูลโรงพยาบาล', href: '/about/info' },
-    { title: 'โครงสร้างการบริหารงาน', href: '/about/org-chart' },
+    { title: 'โครงสร้างการบริหารงาน', href: '/about/management' },
     { title: 'วิสัยทัศน์ พันธกิจ ค่านิยม', href: '/about/vision' },
     { title: 'รางวัล และการรับรอง', href: '/about/awards' },
     { title: 'หน่วยงานภายในโรงพยาบาล', href: '/about/departments' },
@@ -95,7 +95,7 @@ export function Header() {
                                         <NavigationMenuLink
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
-                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary data-[active]:text-foreground relative font-light",
+                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary data-[active]:text-foreground relative font-normal",
                                                 // Custom Active State for Home (Demo: always active for '/')
                                                 "data-[active]:after:absolute data-[active]:after:left-0 data-[active]:after:-bottom-1 data-[active]:after:h-[4px] data-[active]:after:w-full data-[active]:after:rounded-full data-[active]:after:bg-[#56dfd5]"
                                             )}
@@ -107,7 +107,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                         เกี่ยวกับเรา
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -124,7 +124,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                         ข่าวสาร
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -141,7 +141,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                         เจ้าหน้าที่
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -179,7 +179,7 @@ export function Header() {
                             <NavigationMenu>
                                 <NavigationMenuList>
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                             ITA
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
@@ -196,7 +196,7 @@ export function Header() {
                                     </NavigationMenuItem>
 
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                             HS4
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
@@ -213,7 +213,7 @@ export function Header() {
                                     </NavigationMenuItem>
 
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-light text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
                                             หน่วยงาน
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
@@ -236,7 +236,7 @@ export function Header() {
                                     key={item.href}
                                     href={item.href}
                                     className={cn(
-                                        "text-sm font-light text-muted-foreground transition-colors px-4 py-2 rounded-md",
+                                        "text-sm font-normal text-muted-foreground transition-colors px-4 py-2 rounded-md",
                                         item.href === "/login"
                                             ? "hover:bg-teal-50 hover:text-teal-700"
                                             : "hover:text-primary"
