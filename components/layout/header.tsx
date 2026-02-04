@@ -28,8 +28,8 @@ const aboutUsItems = [
     { title: 'วิสัยทัศน์ พันธกิจ ค่านิยม', href: '/about/vision' },
     { title: 'รางวัล และการรับรอง', href: '/about/awards' },
     { title: 'หน่วยงานภายในโรงพยาบาล', href: '/about/departments' },
-    { title: 'ติดต่อเรา', href: '/contact' },
     { title: 'แผนยุทธศาสตร์', href: '/about/strategy' },
+    // { title: 'ติดต่อเรา', href: '/contact' },
 ]
 
 const newsItems = [
