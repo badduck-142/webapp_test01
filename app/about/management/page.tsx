@@ -80,6 +80,8 @@ export default function ManagementPage() {
                     ))}
                 </div>
             </div>
+            <br />
+            <br />
         </div>
     );
 }
