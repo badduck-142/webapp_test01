@@ -95,11 +95,8 @@ export function Header() {
                                         <NavigationMenuLink
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
-                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary data-[active]:text-foreground relative font-normal",
-                                                // Custom Active State for Home (Demo: always active for '/')
-                                                "data-[active]:after:absolute data-[active]:after:left-0 data-[active]:after:-bottom-1 data-[active]:after:h-[4px] data-[active]:after:w-full data-[active]:after:rounded-full data-[active]:after:bg-[#56dfd5]"
+                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary relative font-normal"
                                             )}
-                                            data-active={true} // Hardcoded for demo as per previous state
                                         >
                                             หน้าแรก
                                         </NavigationMenuLink>
