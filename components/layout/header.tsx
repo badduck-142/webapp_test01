@@ -53,25 +53,25 @@ const staffItems = [
 ]
 
 const itaItems = [
-    { title: 'ITA 2567', href: '/ita/2567' },
-    { title: 'ITA 2568', href: '/ita/2568' },
-    { title: 'ITA 2569', href: '/ita/2569' },
+    { title: 'ITA 2567', href: '#' },
+    { title: 'ITA 2568', href: '#' },
+    { title: 'ITA 2569', href: '#' },
 ]
 
 const hs4Items = [
-    { title: 'HS4 มาตรฐาน 9 ด้าน โรงพยาบาลโนนคูณ', href: '/hs4/standard' },
-    { title: 'HS4 มาตรฐาน 9 ด้าน โรงพยาบาลโนนคูณ ปีงบ 2569', href: '/hs4/2569' },
+    { title: 'HS4 มาตรฐาน 9 ด้าน โรงพยาบาลโนนคูณ', href: '#' },
+    { title: 'HS4 มาตรฐาน 9 ด้าน โรงพยาบาลโนนคูณ ปีงบ 2569', href: '#' },
 ]
 
 const departmentsItems = [
-    { title: 'HDC กระทรวงสาธารณสุข (ข้อมูล 43 แฟ้ม)', href: '/departments/hdc-moph' },
-    { title: 'HDC สสจ.ศรีสะเกษ (ข้อมูล 43 แฟ้ม)', href: '/departments/hdc-ssk' },
-    { title: 'KPI', href: '/departments/kpi' },
-    { title: 'ประเมินโครงการมหัศจรรย์ 1,000 วัน', href: '/departments/1000-days' },
-    { title: 'Health GIS', href: '/departments/health-gis' },
-    { title: 'PaySlip', href: '/departments/payslip' },
-    { title: 'สหกรณ์ออมทรัพย์สาธารณสุขศรีสะเกษ', href: '/departments/coop-ssk' },
-    { title: 'KPI_template_2568', href: '/departments/kpi-template-2568' },
+    { title: 'HDC กระทรวงสาธารณสุข (ข้อมูล 43 แฟ้ม)', href: '#' },
+    { title: 'HDC สสจ.ศรีสะเกษ (ข้อมูล 43 แฟ้ม)', href: '#' },
+    { title: 'KPI', href: '#' },
+    { title: 'ประเมินโครงการมหัศจรรย์ 1,000 วัน', href: '#' },
+    { title: 'Health GIS', href: '#' },
+    { title: 'PaySlip', href: '#' },
+    { title: 'สหกรณ์ออมทรัพย์สาธารณสุขศรีสะเกษ', href: '#' },
+    { title: 'KPI_template_2568', href: '#' },
 ]
 
 const rightNavItems = [
@@ -93,7 +93,7 @@ export function Header() {
                                         <NavigationMenuLink
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
-                                                "bg-transparent text-muted-foreground hover:text-primary focus:text-primary relative font-normal"
+                                                "bg-transparent text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700 relative font-normal"
                                             )}
                                         >
                                             หน้าแรก
@@ -102,7 +102,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                         เกี่ยวกับเรา
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -119,7 +119,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                         ข่าวสาร
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -136,7 +136,7 @@ export function Header() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                    <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                         เจ้าหน้าที่
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="bg-white">
@@ -174,7 +174,7 @@ export function Header() {
                             <NavigationMenu>
                                 <NavigationMenuList>
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                             ITA
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
@@ -191,7 +191,7 @@ export function Header() {
                                     </NavigationMenuItem>
 
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                             HS4
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
@@ -208,7 +208,7 @@ export function Header() {
                                     </NavigationMenuItem>
 
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:text-primary focus:text-primary">
+                                        <NavigationMenuTrigger className="bg-transparent font-normal text-muted-foreground hover:bg-teal-50 hover:text-teal-700 focus:bg-teal-50 focus:text-teal-700">
                                             หน่วยงาน
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent className="bg-white">
