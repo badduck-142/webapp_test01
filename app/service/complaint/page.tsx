@@ -28,10 +28,10 @@ export default function ComplaintPage() {
                         และจะดำเนินการตรวจสอบต่อไป
                     </p>
                     <Button
-                        className="bg-[#13cdbf] hover:bg-[#0f9f94] w-full"
+                        className="bg-[#13cdbf] hover:bg-[#0f9f94] w-full text-white"
                         onClick={() => window.location.reload()}
                     >
-                        เน‚เธ•เธฒเธฅเน•เธ”เธฅเน‰เธข
+                        เสร็จสิ้น
                     </Button>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export default function ComplaintPage() {
                         <div className="grid gap-6 md:grid-cols-2">
                             {/* Name Input */}
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                                <label htmlFor="name" className="text-sm font-medium text-gray-600 flex items-center gap-2">
                                     <User className="h-4 w-4 text-[#13cdbf]" />
                                     ชื่อ-นามสกุล
                                 </label>
@@ -75,13 +75,13 @@ export default function ComplaintPage() {
                                     name="name"
                                     placeholder="ระบุชื่อ-นามสกุลของคุณ"
                                     required
-                                    className="focus-visible:ring-[#13cdbf]"
+                                    className="focus-visible:ring-[#13cdbf] text-gray-600"
                                 />
                             </div>
 
                             {/* Contact Input */}
                             <div className="space-y-2">
-                                <label htmlFor="contact" className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                                <label htmlFor="contact" className="text-sm font-medium text-gray-600 flex items-center gap-2">
                                     <Phone className="h-4 w-4 text-[#13cdbf]" />
                                     เบอร์โทรศัพท์ / อีเมล
                                 </label>
@@ -90,14 +90,14 @@ export default function ComplaintPage() {
                                     name="contact"
                                     placeholder="เช่น 0xx-xxx-xxxx"
                                     required
-                                    className="focus-visible:ring-[#13cdbf]"
+                                    className="focus-visible:ring-[#13cdbf] text-gray-600"
                                 />
                             </div>
                         </div>
 
                         {/* Subject Input */}
                         <div className="space-y-2">
-                            <label htmlFor="subject" className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                            <label htmlFor="subject" className="text-sm font-medium text-gray-600 flex items-center gap-2">
                                 <Mail className="h-4 w-4 text-[#13cdbf]" />
                                 หัวข้อเรื่อง
                             </label>
@@ -106,13 +106,13 @@ export default function ComplaintPage() {
                                 name="subject"
                                 placeholder="เรื่องที่ต้องการร้องเรียน"
                                 required
-                                className="focus-visible:ring-[#13cdbf]"
+                                className="focus-visible:ring-[#13cdbf] text-gray-600"
                             />
                         </div>
 
                         {/* Message Textarea */}
                         <div className="space-y-2">
-                            <label htmlFor="message" className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                            <label htmlFor="message" className="text-sm font-medium text-gray-600 flex items-center gap-2">
                                 <FileText className="h-4 w-4 text-[#13cdbf]" />
                                 รายละเอียด
                             </label>
@@ -120,7 +120,7 @@ export default function ComplaintPage() {
                                 id="message"
                                 name="message"
                                 rows={6}
-                                className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#13cdbf] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#13cdbf] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-gray-600"
                                 placeholder="อธิบายรายละเอียดของปัญหา วันเวลา และสถานที่..."
                                 required
                             ></textarea>
@@ -135,7 +135,7 @@ export default function ComplaintPage() {
                                 {isPending ? (
                                     "กำลังส่งข้อมูล..."
                                 ) : (
-                                    <span className="flex items-center gap-2">
+                                    <span className="flex items-center gap-2 text-white">
                                         ส่งเรื่องร้องเรียน <Send className="h-5 w-5" />
                                     </span>
                                 )}
