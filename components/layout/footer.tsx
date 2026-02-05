@@ -15,24 +15,24 @@ export function Footer() {
                             <ul className="space-y-3 font-light">
                                 <li>
                                     <Link
-                                        href="#"
+                                        href="/about/info"
                                         className="hover:underline hover:opacity-90"
                                     >
                                         ประวัติโรงพยาบาลโนนคูณ
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:underline hover:opacity-90">
+                                    <Link href="/about/management" className="hover:underline hover:opacity-90">
                                         โครงสร้างการบริหารงาน
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:underline hover:opacity-90">
+                                    <Link href="/about/vision" className="hover:underline hover:opacity-90">
                                         วิสัยทัศน์
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:underline hover:opacity-90">
+                                    <Link href="/about/strategy" className="hover:underline hover:opacity-90">
                                         ยุทธศาสตร์โรงพยาบาลโนนคูณ
                                     </Link>
                                 </li>

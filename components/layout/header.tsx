@@ -42,16 +42,14 @@ const newsItems = [
 ]
 
 const staffItems = [
-    { title: 'HIMPRO ONLINE', href: '/staff/himpro' },
-    { title: 'HRM ONLINE', href: '/staff/hrm' },
-    { title: 'สารบัญออนไลน์', href: '/staff/saraban' },
-    { title: 'HDC', href: '/staff/hdc' },
-    { title: 'INTRANET', href: '/staff/intranet' },
-    { title: 'ระบบลงเวลา', href: '/staff/time-attendance' },
-    { title: 'ITSERVICES', href: '/staff/it-services' },
-    { title: 'ระบบสารบรรณออนไลน์', href: '/staff/e-saraban' },
-    { title: 'ระบบ newSarabun68', href: '/staff/new-saraban-68' },
-    { title: 'โปรแกรมซ่อมออนไลน์', href: '/staff/repair' },
+    { title: 'HIMPRO ONLINE', href: 'https://nkhosp.himpro.info/Account/Login?ReturnUrl=%2Fhimpro' },
+    { title: 'HRM ONLINE', href: 'https://hrm.nkhosp.himpro.info/Account/Login?ReturnUrl=%2F' },
+    { title: 'สารบัญออนไลน์', href: 'http://192.168.200.230/newsarabun65/' },
+    { title: 'HDC', href: '#' },
+    { title: 'INTRANET', href: '#' },
+    { title: 'ระบบลงเวลา', href: 'http://118.174.46.162:9080/backoffice/login' },
+    { title: 'ITSERVICES', href: '#' },
+    { title: 'โปรแกรมซ่อมออนไลน์', href: 'http://118.174.46.162:9080/backoffice/repair_normal/user/genrepairtype' },
 ]
 
 const itaItems = [

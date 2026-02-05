@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+
 import {
     Stethoscope,
     HeartHandshake,
@@ -64,7 +64,7 @@ export default function DepartmentsPage() {
                         <h3 className="text-center font-medium text-gray-700 group-hover:text-teal-600 transition-colors duration-200 px-2 leading-tight">
                             {dept.name}
                         </h3>
-                        <br /> <br />
+
                     </div>
                 ))}
             </div>

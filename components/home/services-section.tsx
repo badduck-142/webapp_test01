@@ -21,7 +21,7 @@ const services = [
     {
         title: "หมอพร้อม",
         icon: Heart,
-        href: "#",
+        href: "https://mohpromt.moph.go.th/mpc/",
     },
     {
         title: "IT SERVICE",
@@ -31,7 +31,7 @@ const services = [
     {
         title: "เรื่องร้องเรียน",
         icon: FilePenLine,
-        href: "#",
+        href: "/service/complaint",
     },
     {
         title: "ระบบ newSarabun 68",
@@ -41,17 +41,17 @@ const services = [
     {
         title: "BACKOFFICE",
         icon: Building,
-        href: "#",
+        href: "http://118.174.46.162:9080/backoffice/login",
     },
     {
         title: "HIMPRO ONLINE",
         icon: Globe,
-        href: "#",
+        href: "https://nkhosp.himpro.info/Account/Login?ReturnUrl=%2Fhimpro",
     },
     {
         title: "HIMPRO HRM",
         icon: Users,
-        href: "#",
+        href: "https://hrm.nkhosp.himpro.info/Account/Login?ReturnUrl=%2F",
     },
 ]
 
@@ -69,6 +69,8 @@ export function ServicesSection() {
                     <Link
                         key={service.title}
                         href={service.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group flex flex-col items-center justify-center rounded-xl border border-[#13cdbf] bg-white p-8 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         <service.icon className="mb-4 h-12 w-12 text-[#13cdbf] transition-transform duration-300 group-hover:scale-110" />
