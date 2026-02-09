@@ -26,7 +26,7 @@ const services = [
     {
         title: "IT SERVICE",
         icon: MonitorCog,
-        href: "#",
+        href: "/it-service",
     },
     {
         title: "เรื่องร้องเรียน",

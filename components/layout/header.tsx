@@ -35,20 +35,18 @@ const aboutUsItems = [
 const newsItems = [
     { title: 'ประกวดราคา/จัดซื้อจัดจ้าง', href: '/news/procurement' },
     { title: 'รับสมัครงาน', href: '/news/jobs' },
-    { title: 'บทความและความรู้', href: '/news/articles' },
-    { title: 'ภาพกิจกรรม', href: '/news/gallery' },
     { title: 'กฏหมายและระเบียบ', href: '/news/laws' },
-    { title: 'ส่งแบบฟอร์มสมัครงาน', href: '/news/apply-job' },
+    { title: 'ส่งแบบฟอร์มสมัครงาน', href: '#' },
 ]
 
 const staffItems = [
     { title: 'HIMPRO ONLINE', href: 'https://nkhosp.himpro.info/Account/Login?ReturnUrl=%2Fhimpro' },
     { title: 'HRM ONLINE', href: 'https://hrm.nkhosp.himpro.info/Account/Login?ReturnUrl=%2F' },
     { title: 'สารบัญออนไลน์', href: 'http://192.168.200.230/newsarabun65/' },
-    { title: 'HDC', href: '#' },
+    { title: 'HDC', href: 'https://hdc.moph.go.th/ssk/public/main' },
     { title: 'INTRANET', href: '#' },
     { title: 'ระบบลงเวลา', href: 'http://118.174.46.162:9080/backoffice/login' },
-    { title: 'ITSERVICES', href: '#' },
+    { title: 'ITSERVICES', href: '/it-service' },
     { title: 'โปรแกรมซ่อมออนไลน์', href: 'http://118.174.46.162:9080/backoffice/repair_normal/user/genrepairtype' },
 ]
 
