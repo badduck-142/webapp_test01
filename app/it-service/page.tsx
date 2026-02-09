@@ -40,9 +40,9 @@ const STATUS_LABELS: Record<Status, string> = {
 
 // Mock Data
 const currentUser = {
-    name: 'พยาบาลวิชาชีพ ใจดี (Nursing Staff)',
-    department: 'OPD (ผู้ป่วยนอก)',
-    employeeId: 'NUR-001',
+    name: 'เก้าสมุทร ชุ่มจิตร์',
+    department: 'IT',
+    employeeId: 'IT-001',
     ext: '1120'
 };
 
