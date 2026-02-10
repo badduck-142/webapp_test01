@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  username   String   @unique
+  password   String
+  name       String
+  department String?
+  tel        String?
+  role       String   @default("USER") // USER, ADMIN
+  tickets    Ticket[]
+  createdAt  DateTime @default(now())
+}
+
+model Ticket {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  department  String
+  priority    String   @default("NORMAL") // LOW, NORMAL, HIGH, CRITICAL
+  status      String   @default("PENDING") // PENDING, DOING, DONE
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model News {
+  id       Int      @id @default(autoincrement())
+  title    String
+  content  String?
+  pdfUrl   String?
+  category String
+  date     DateTime @default(now())
+}
