@@ -1,13 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, Download, HardDrive, Headset, Monitor, Search, Server, Trash2, Wifi, Wrench, BookOpen } from "lucide-react";
+import { Clock, Download, HardDrive, Headset, Monitor, Search, Server, Trash2, Wifi, Wrench, BookOpen, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { createTicket } from "@/app/actions";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { createTicket, updateTicketStatus, deleteTicket } from "@/app/actions";
 import { Ticket, User } from "@prisma/client";
 
 // Types
@@ -15,14 +21,9 @@ type Priority = 'Low' | 'Medium' | 'High' | 'Critical';
 type Status = 'Waiting' | 'In Progress' | 'Done' | 'Cancelled';
 
 const PRIORITY_LABELS: Record<string, string> = {
-    'Low': 'ต่ำ',
-    'Medium': 'ปานกลาง',
-    'High': 'สูง',
-    'Critical': 'วิกฤต',
-    'NORMAL': 'ปกติ', // Matches Prisma default if used
     'LOW': 'ต่ำ',
-    'HIGH': 'สูง',
-    'CRITICAL': 'วิกฤต'
+    'MEDIUM': 'ปานกลาง',
+    'HIGH': 'สูง'
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -32,6 +33,7 @@ const STATUS_LABELS: Record<string, string> = {
     'Cancelled': 'ยกเลิก',
     'PENDING': 'รอ',
     'DOING': 'กำลังดำเนินการ',
+    'IN_PROGRESS': 'กำลังดำเนินการ',
     'DONE': 'เสร็จสิ้น'
 };
 
@@ -39,24 +41,25 @@ type TicketWithUser = Ticket & { user: User };
 
 interface ServiceContentProps {
     initialTickets: TicketWithUser[];
+    user: any; // Or define a proper type
 }
 
-export default function ServiceContent({ initialTickets }: ServiceContentProps) {
-    const [isAdmin, setIsAdmin] = useState(false);
+export default function ServiceContent({ initialTickets, user }: ServiceContentProps) {
+    // const [isAdmin, setIsAdmin] = useState(false); // Removed
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    // Form State for controlled inputs (optional with Server Actions but good for UX)
-    const [department, setDepartment] = useState("");
+    // Form State for controlled inputs
+    const [department, setDepartment] = useState(user?.department || "");
     const [issue, setIssue] = useState("");
-    const [priority, setPriority] = useState<string>("NORMAL");
+    const [priority, setPriority] = useState<string>("MEDIUM");
 
     // Client-side wrapper for the Server Action
     const handleSubmit = async (formData: FormData) => {
         await createTicket(formData);
         setIsDialogOpen(false);
         setIssue("");
-        setDepartment("");
-        setPriority("NORMAL");
+        // setDepartment(""); // Don't clear department if it's from user
+        setPriority("MEDIUM");
     };
 
     return (
@@ -162,6 +165,7 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                                         <TableHead className="w-[40%]">ปัญหา</TableHead>
                                         <TableHead>ความสำคัญ</TableHead>
                                         <TableHead>สถานะ</TableHead>
+                                        <TableHead className="w-[50px]"></TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -174,7 +178,7 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                                             <TableCell>
                                                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium
                                                     ${['HIGH', 'CRITICAL'].includes(ticket.priority) ? 'bg-red-100 text-red-700' :
-                                                        ticket.priority === 'NORMAL' ? 'bg-blue-100 text-blue-700' :
+                                                        ticket.priority === 'MEDIUM' ? 'bg-blue-100 text-blue-700' :
                                                             'bg-slate-100 text-slate-700'}`}>
                                                     {PRIORITY_LABELS[ticket.priority] || ticket.priority}
                                                 </span>
@@ -182,11 +186,43 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                                             <TableCell>
                                                 <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium border
                                                     ${['PENDING', 'Waiting'].includes(ticket.status) ? 'bg-yellow-50 text-yellow-700 border-yellow-200' :
-                                                        ['DOING', 'In Progress'].includes(ticket.status) ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                                                        ['DOING', 'In Progress', 'IN_PROGRESS'].includes(ticket.status) ? 'bg-blue-50 text-blue-700 border-blue-200' :
                                                             ['DONE', 'Done'].includes(ticket.status) ? 'bg-green-50 text-green-700 border-green-200' :
                                                                 'bg-slate-100 text-slate-500 border-slate-200'}`}>
                                                     {STATUS_LABELS[ticket.status] || ticket.status}
                                                 </span>
+                                            </TableCell>
+                                            <TableCell>
+                                                {user?.role === 'ADMIN' && (
+                                                    <DropdownMenu>
+                                                        <DropdownMenuTrigger asChild>
+                                                            <Button variant="ghost" className="h-8 w-8 p-0 cursor-pointer">
+                                                                <span className="sr-only">Open menu</span>
+                                                                <MoreHorizontal className="h-4 w-4" />
+                                                            </Button>
+                                                        </DropdownMenuTrigger>
+                                                        <DropdownMenuContent className="w-40 bg-white" align="end">
+                                                            <DropdownMenuItem
+                                                                onClick={() => updateTicketStatus(ticket.id, 'IN_PROGRESS')}
+                                                                className="cursor-pointer focus:bg-blue-50 focus:text-blue-600"
+                                                            >
+                                                                รับงาน
+                                                            </DropdownMenuItem>
+                                                            <DropdownMenuItem
+                                                                onClick={() => updateTicketStatus(ticket.id, 'DONE')}
+                                                                className="cursor-pointer focus:bg-green-50 focus:text-green-600"
+                                                            >
+                                                                จบงาน
+                                                            </DropdownMenuItem>
+                                                            <DropdownMenuItem
+                                                                onClick={() => deleteTicket(ticket.id)}
+                                                                className="text-red-600 focus:text-red-600 cursor-pointer focus:bg-red-50"
+                                                            >
+                                                                ลบใบงาน
+                                                            </DropdownMenuItem>
+                                                        </DropdownMenuContent>
+                                                    </DropdownMenu>
+                                                )}
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -234,6 +270,24 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                             </DialogTitle>
                         </DialogHeader>
                         <form action={handleSubmit} className="space-y-6 mt-4">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="text-base font-semibold text-slate-700 mb-2 block">ผู้แจ้ง</label>
+                                    <Input
+                                        value={user?.name || ""}
+                                        disabled
+                                        className="bg-slate-100 h-11 text-base text-slate-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-base font-semibold text-slate-700 mb-2 block">เบอร์ติดต่อ</label>
+                                    <Input
+                                        value={user?.tel || ""}
+                                        disabled
+                                        className="bg-slate-100 h-11 text-base text-slate-500"
+                                    />
+                                </div>
+                            </div>
                             <div>
                                 <label className="text-base font-semibold text-slate-700 mb-2 block">แผนก</label>
                                 <Input
@@ -260,12 +314,12 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                                 <label className="text-base font-semibold text-slate-700 mb-2 block">ระดับความสำคัญ</label>
                                 <input type="hidden" name="priority" value={priority} />
                                 <div className="grid grid-cols-3 gap-3">
-                                    {['NORMAL', 'HIGH', 'CRITICAL'].map((p) => (
+                                    {['LOW', 'MEDIUM', 'HIGH'].map((p) => (
                                         <button
                                             key={p}
                                             type="button"
                                             onClick={() => setPriority(p)}
-                                            className={`text-base py-3 px-4 rounded-lg border transition-all ${priority === p
+                                            className={`cursor-pointer text-base py-3 px-4 rounded-lg border transition-all ${priority === p
                                                 ? 'bg-teal-50 border-teal-500 text-teal-700 font-bold shadow-sm ring-1 ring-teal-500'
                                                 : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}
                                         >
@@ -275,8 +329,8 @@ export default function ServiceContent({ initialTickets }: ServiceContentProps) 
                                 </div>
                             </div>
                             <div className="flex justify-end gap-3 mt-6">
-                                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>ยกเลิก</Button>
-                                <Button type="submit" className="bg-teal-600 text-white hover:bg-teal-700">ส่งคำร้อง</Button>
+                                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)} className="cursor-pointer">ยกเลิก</Button>
+                                <Button type="submit" className="bg-teal-600 text-white hover:bg-teal-700 cursor-pointer">ส่งคำร้อง</Button>
                             </div>
                         </form>
                     </DialogContent>

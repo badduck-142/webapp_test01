@@ -26,7 +26,7 @@ model Ticket {
   title       String
   description String?
   department  String
-  priority    String   @default("NORMAL") // LOW, NORMAL, HIGH, CRITICAL
+  priority    String   @default("MEDIUM") // LOW, MEDIUM, HIGH
   status      String   @default("PENDING") // PENDING, DOING, DONE
   userId      Int
   user        User     @relation(fields: [userId], references: [id])

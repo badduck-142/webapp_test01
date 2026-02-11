@@ -49,8 +49,8 @@ export default function ComplaintPage() {
                     <div className="mx-auto h-1 w-20 rounded-full bg-[#13cdbf]"></div>
                     <p className="mt-4 text-gray-600">
                         ช่องทางสำหรับการแจ้งเรื่องร้องเรียน ข้อเสนอแนะ หรือติชมการให้บริการ
-                        เพื่อนำไปปรับปรุงและพัฒนาโรงพยาบาลให้ดียิ่งขึ้น
                     </p>
+                    <p className="text-gray-600">เพื่อนำไปปรับปรุงและพัฒนาโรงพยาบาลให้ดียิ่งขึ้น</p>
                 </div>
 
                 {/* Form Card */}
